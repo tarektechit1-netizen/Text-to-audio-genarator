@@ -1,0 +1,5 @@
+{
+  "name": "BanglaNarrator",
+  "description": "A long-form Text-to-Speech tool powered by Gemini 2.5 Flash TTS, featuring queue management, style controls, and audio merging.",
+  "requestFramePermissions": []
+}
