@@ -11,9 +11,15 @@ export const generateSpeech = async (
   voiceName: string, 
   instructions?: string
 ): Promise<TTSResult> => {
-  // Use process.env.API_KEY as per guidelines.
-  // Assume process.env.API_KEY is pre-configured, valid, and accessible.
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  // Use process.env.API_KEY exclusively as per guidelines.
+  // Assume it is available and configured in the environment.
+  const apiKey = process.env.API_KEY;
+
+  if (!apiKey) {
+    throw new Error("API Key not found. Please check your environment configuration.");
+  }
+
+  const ai = new GoogleGenAI({ apiKey: apiKey });
 
   let promptText = text;
   if (instructions && instructions.trim().length > 0) {
